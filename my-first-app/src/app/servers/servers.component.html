@@ -1,28 +1,30 @@
-<label class="block text-gray-700 text-sm font-bold mb-2">Server Name</label>
-<!-- <input type="text"
-class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-(input)="onUpdateServerName($event)"> -->
+<mat-form-field class="example-form-field">
+  <mat-label>Server Name</mat-label>
+  <input matInput type="text" [(ngModel)]="serverName" />
+</mat-form-field>
 
-<input
-  type="text"
-  class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-  [(ngModel)]="serverName"
-/>
+<div class="example-button-row">
+  <button
+    mat-button
+    color="primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()"
+  >
+    Add Server
+  </button>
+</div>
 
-<!-- <p>{{serverName}}</p> -->
-
-<button
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-  [class.cursor-not-allowed]="!allowNewServer"
-  (click)="onCreateServer()"
->
-  Add Server
-</button>
 <!-- <p [innerText]="allowNewServer"></p> -->
 
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
 
-<div class="grid grid-cols-1 gap-4">
-  <app-server></app-server>
-  <app-server></app-server>
-</div>
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <app-server></app-server>
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <app-server></app-server>
+  </mat-list-item>
+</mat-list>
