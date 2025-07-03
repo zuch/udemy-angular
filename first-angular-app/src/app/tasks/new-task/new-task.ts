@@ -1,6 +1,5 @@
 import {Component, input, output, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {NewTaskModel} from './new-task.model';
 import {inject} from "@angular/core";
 import {TasksService} from '../tasks.service';
 
