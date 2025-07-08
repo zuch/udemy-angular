@@ -95,4 +95,4 @@ fabric.properties
 
 # Angular
 .angular/
-.node_modules/
+node_modules/
